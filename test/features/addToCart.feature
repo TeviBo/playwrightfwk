@@ -14,11 +14,6 @@ Feature: Add products to cart
     Then the cart badge should get updated
 
     Examples:
-      | username           | password | monitor                  |
-      | lramallo@gmail.com | Pass1234 | Samsung SyncMaster 941BW |
-  #     | csaul@gmail.com    | Pass1234$ | Galaxy                   |
-  # @fail
-  # Scenario: UnAuthenticated User - Add to cart
-  #   When user search for a "iMac"
-  #   And user add the product to the cart
-  #   Then the cart badge should get updated
+      | username           | password  | product                  |
+      | lramallo@gmail.com | Pass1234  | Samsung SyncMaster 941BW |
+      | csaul@gmail.com    | Pass1234$ | Galaxy                   |

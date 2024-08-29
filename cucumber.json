@@ -4,15 +4,18 @@
             "snippetInterface": "async-await"
         },
         "paths": [
-            "src/test/features/addToCart.feature"
+            "test/features/*.feature"
         ],
         "dryRun": false,
         "require": [
-            "src/test/steps/*.ts",
+            "test/steps/*.ts",
             "src/hooks/hooks.ts"
         ],
         "requireModule": [
             "ts-node/register"
+        ],
+        "format": [
+            "html:cucumber-report.html"
         ]
     }
 }
