@@ -7,7 +7,7 @@ let context: BrowserContext;
 
 
 BeforeAll(async () => {
-    browser = await chromium.launch({ headless: false });
+    browser = await chromium.launch({ headless: !false });
 });
 
 Before(async () => {
@@ -15,6 +15,7 @@ Before(async () => {
     const page = await context.newPage();
     pageFixture.page = page;
 });
+
 
 
 
@@ -27,7 +28,6 @@ After(async ({ pickle, result }) => {
     }
     await pageFixture.page.close();
     await context.close();
-
 });
 
 AfterAll(async () => {
