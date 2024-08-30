@@ -1,4 +1,4 @@
-import { Before, After, BeforeAll, AfterAll, Status } from '@cucumber/cucumber'
+import { Before, After, BeforeAll, AfterAll, Status, AfterStep } from '@cucumber/cucumber'
 import { chromium, Browser, BrowserContext } from '@playwright/test';
 import { pageFixture } from './pageFixture';
 
@@ -15,6 +15,8 @@ Before(async () => {
     const page = await context.newPage();
     pageFixture.page = page;
 });
+
+
 
 After(async ({ pickle, result }) => {
     // screenshot
