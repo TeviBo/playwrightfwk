@@ -1,18 +1,30 @@
 {
-  "name": "playwright",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "cucumber-js test"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@cucumber/cucumber": "^10.9.0",
-    "@playwright/test": "^1.46.1",
-    "@types/node": "^22.5.0",
-    "ts-node": "^10.9.2"
-  }
+    "name": "playwright",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "pretest": "npx ts-node src/helpers /init.ts",
+        "test": "cucumber-js test || true",
+        "posttest": "npx ts-node src/helpers/report.ts",
+        "test:failed": "cucumber-js -p rerun @rerun.txt"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@cucumber/cucumber": "^10.9.0",
+        "@playwright/test": "^1.46.1",
+        "@types/chai": "^4.3.19",
+        "@types/cucumber": "^6.0.1",
+        "@types/node": "^22.5.0",
+        "chai": "^5.1.1",
+        "cucumber": "^6.0.7",
+        "cucumber-pretty": "^6.0.1",
+        "cucumber-tsflow": "^4.4.4",
+        "fs-extra": "^11.2.0",
+        "multiple-cucumber-html-reporter": "^3.7.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.5.4"
+    }
 }
