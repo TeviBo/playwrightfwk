@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "pretest": "npx ts-node src/helpers /init.ts",
         "test": "cucumber-js test || true",
         "posttest": "npx ts-node src/helpers/report.ts",
         "test:failed": "cucumber-js -p rerun @rerun.txt"
@@ -21,6 +22,7 @@
         "cucumber": "^6.0.7",
         "cucumber-pretty": "^6.0.1",
         "cucumber-tsflow": "^4.4.4",
+        "fs-extra": "^11.2.0",
         "multiple-cucumber-html-reporter": "^3.7.0",
         "ts-node": "^10.9.2",
         "typescript": "^5.5.4"

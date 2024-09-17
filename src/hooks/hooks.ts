@@ -7,7 +7,7 @@ let context: BrowserContext;
 
 
 BeforeAll(async () => {
-    browser = await chromium.launch({ headless: !false });
+    browser = await chromium.launch({ headless: false });
 });
 
 Before(async () => {
@@ -17,14 +17,10 @@ Before(async () => {
 });
 
 
-
-
 After(async ({ pickle, result }) => {
     // screenshot
     if (result?.status === Status.FAILED) {
-        const img = await pageFixture.page.screenshot({ path: `./test-results/screenshots/${pickle.name}.png`, type: "png" });
-        // @ts-ignore
-        await this.attach(img, "image/png");
+        await pageFixture.page.screenshot({ path: `./reports/screenshots/${pickle.name}.png`, type: "png" });
     }
     await pageFixture.page.close();
     await context.close();

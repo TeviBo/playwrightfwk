@@ -5,36 +5,31 @@ import { pageFixture } from "../../src/hooks/pageFixture";
 
 setDefaultTimeout(60 * 1000 * 2)
 
-Given('User navigates to the application', function () {
-    pageFixture.page.goto("https://opencart.abstracta.us/");
+Given('User navigates to the application', async () => {
+    await pageFixture.page.goto("https://demoqa.com/login");
 });
 
-Given('User click on the login link', function () {
-    pageFixture.page.locator("//a[@title='My Account']").click();
-    pageFixture.page.locator("//a[normalize-space(text())='Login']").click();
+Given('User enter the username as {string}', async (username: string) => {
+    await pageFixture.page.locator("id=userName").fill(username);
 });
 
-Given('User enter the username as {string}', function (username: string) {
-    pageFixture.page.locator("id=input-email").fill(username);
-});
-
-Given('User enter the password as {string}', function (password: string) {
-    pageFixture.page.locator("id=input-password").fill(password);
+Given('User enter the password as {string}', async (password: string) => {
+    await pageFixture.page.locator("id=password").fill(password);
 })
 
-When('User click on the login button', function () {
-    pageFixture.page.locator("input[value='Login']").click();
-    pageFixture.page.waitForLoadState();
+When('User click on the login button', async () => {
+    await pageFixture.page.locator("id=login").click();
+    await pageFixture.page.waitForLoadState();
 });
 
 
-Then('Login should be success', function () {
-    const user = pageFixture.page.locator("i.fa.fa-phone");
+Then('Login should be success', () => {
+    const user = pageFixture.page.locator("id=userName-value");
     expect(user).toBeVisible();
 })
 
-When('Login should fail', function () {
-    const failureMesssage = pageFixture.page.locator("//div[normalize-space(text())='Warning: No match for E-Mail Address and/or Password.']");
+When('Login should fail', () => {
+    const failureMesssage = pageFixture.page.locator("id=name");
     expect(failureMesssage).toBeVisible();
 });
 

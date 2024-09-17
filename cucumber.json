@@ -1,7 +1,10 @@
 {
     "default": {
+        "formatOptions": {
+            "snippetInterface": "async-await"
+        },
         "paths": [
-            "test/features/**/*.feature"
+            "test/features/**/login.feature"
         ],
         "dryRun": false,
         "require": [
@@ -13,8 +16,8 @@
         ],
         "format": [
             "progress-bar",
-            "html:test-results/cucumber-report.html",
-            "json:test-results/cucumber-report.json",
+            "html:reports/test-results/cucumber-report.html",
+            "json:reports/test-results/cucumber-report.json",
             "rerun:@rerun.txt"
         ],
         "parallel": 2
@@ -37,8 +40,8 @@
         ],
         "format": [
             "progress-bar",
-            "html:test-results/cucumber-report.html",
-            "json:test-results/cucumber-report.json",
+            "html:reports/test-results/cucumber-report.html",
+            "json:reports/test-results/cucumber-report.json",
             "rerun:@rerun.txt"
         ],
         "parallel": 2
